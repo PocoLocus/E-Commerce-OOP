@@ -23,15 +23,15 @@ class ShoppingCart:
     def __init__(self):
         self.cart_list = []
 
-    def add_product(self, new_product):
-        self.cart_list.append(new_product)
+    def add_item(self, new_item):
+        self.cart_list.append(new_item)
 
-    def list_products(self):
-        for product in self.cart_list:
-            print(f"{product}")
+    def list_items(self):
+        for item in self.cart_list:
+            print(f"{item}")
 
     def get_total(self):
-        return sum(product.price for product in self.cart_list)
+        return sum(item.price for item in self.cart_list)
 
 class Order:
     def __init__(self, my_cart):
@@ -39,7 +39,7 @@ class Order:
 
     def send_order(self):
         print("Order details")
-        self.cart.list_products()
+        self.cart.list_items()
         print(f"Total: {self.cart.get_total()}$")
         print("The order has been sent!")
 
@@ -49,9 +49,9 @@ item_2 = Product(2, "pants", 20)
 item_3 = Service(3, "support", 5, 10)
 
 my_cart = ShoppingCart()
-my_cart.add_product(product_1)
-my_cart.add_product(product_2)
-my_cart.add_product(product_3)
+my_cart.add_item(item_1)
+my_cart.add_item(item_2)
+my_cart.add_item(item_3)
 
 final_order = Order(my_cart)
 final_order.send_order()
